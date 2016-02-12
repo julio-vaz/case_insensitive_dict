@@ -1,6 +1,6 @@
 # encode: utf-8
 from types import UnicodeType
-from helpers.utils import clean_unicode
+from utils import clean_unicode
 
 
 class CaseInsensitiveDict(dict):
