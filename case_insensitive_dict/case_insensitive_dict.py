@@ -12,6 +12,10 @@ class CaseInsensitiveDict(dict):
             key = clean_unicode(key.lower())
         if isinstance(value, dict):
             value = CaseInsensitiveDict(value)
+        if isinstance(value, list):
+            value = [
+                CaseInsensitiveDict(k)
+                if isinstance(k, dict) else k for k in value]
         super(CaseInsensitiveDict, self).__setitem__(key, value)
 
     def __getitem__(self, key):
